@@ -1,4 +1,4 @@
-###Script.
+\###Script.
 Actually, original script contains comments (starting with #) explaining how script works.  
  
 #load data from files  
