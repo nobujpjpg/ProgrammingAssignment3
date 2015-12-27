@@ -1,7 +1,7 @@
 ###Introduction
-First of all, I would briefly explain the files made for course project assignment for "Getting and Cleaning Data"
-Then, the explanation for the scrpit follows.
-
+First of all, I would briefly explain the files made for course project assignment for "Getting and Cleaning Data"  
+Then, the explanation for the scrpit follows.  
+  
 ###This Github repo includes run_analysis.R, README.md, and CodeBook.md.
 According to the instruction,   
 run_analysis.R was made to output the text file from original data saved in the working   directory.   
