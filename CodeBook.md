@@ -1,21 +1,21 @@
 ##Script.
-Actually, original script contains comments (starting with #) explaining how script works.  
+Actually, original script contains comments (starting with #) explaining how script works. Thus, please refer to the following script with comment.
  
 \#load data from files  
-test<- read.table("C:/Desktop/UCI HAR Dataset/test/X_test.txt",header=F)  
-testlabel<- read.table("C:/Desktop/UCI HAR Dataset/test/y_test.txt",header=F)  
-train<- read.table("C:/Desktop/UCI HAR Dataset/train/X_train.txt",header=F)  
-trainlabel<- read.table("C:/Desktop/UCI HAR Dataset/train/y_train.txt",header=F)  
-feature<- read.table("C:/Desktop/UCI HAR Dataset/features.txt",header=F)  
-actlabel<- read.table("C:/Desktop/UCI HAR Dataset/activity_labels.txt",header=F)  
-subjecttest<- read.table("C:/Desktop/UCI HAR Dataset/test/subject_test.txt",header=F)  
-subjecttrain<- read.table("C:/Desktop/UCI HAR Dataset/train/subject_train.txt",header=F)  
+test<- read.table("X_test.txt",header=F)
+testlabel<- read.table("y_test.txt",header=F)
+train<- read.table("X_train.txt",header=F)
+trainlabel<- read.table("y_train.txt",header=F)
+feature<- read.table("features.txt",header=F)
+actlabel<- read.table("activity_labels.txt",header=F)
+subjecttest<- read.table("subject_test.txt",header=F)
+subjecttrain<- read.table("subject_train.txt",header=F)
 
-\#task1#################  
+\#task1################################################## 
 \#Merging the training and the test sets  
 combine<-rbind(test,train)  
   
-\#task2#and#task4#################   
+\#task2################################################## 
 \#labeling the data set with descriptive variable names.   
 colnames(combine)<-feature[,2]  
   
@@ -40,7 +40,7 @@ labels<-sort(c(cleanmean,std))
 \#slicing by using vector created above  
 combineavesd<-combine[,labels]  
   
-\#task3#################  
+\#task3##################################################  
 \#Merging the labels for training and the test sets  
 combinelabel<-rbind(testlabel,trainlabel)  
   
@@ -51,7 +51,7 @@ for (i in 1:length(actlabel[,1])) {
   
 activity_labeled_combineavesd<-cbind(combinelabel,combineavesd)  
   
-\#task4  
+\#task4################################################## 
 \#In order to label the data set with descriptive variable names,  
 \#original variable names were trasnformed into more descriptive ones  
   
@@ -70,7 +70,7 @@ name[42:67]<-sub( "f", "Frequency_domain", name[42:67])
 colnames(activity_labeled_combineavesd)<-name  
   
   
-\#task5#################  
+\#task5################################################## 
 \#Merging the training and the test subject information  
 subjects<-rbind(subjecttest,subjecttrain)  
   
@@ -101,5 +101,25 @@ for (i in unique(data5[,1])) {
 }  
     
 write.table(m,"week3.txt",row.name=FALSE,sep=" ")  
+
+
+##Variables  
+The original variable names of the mesurements were trasnformed into more descriptive ones as follows.
+
+From Acc to Acceleration
+From std to SD
+From Gyro to Angular_velocity
+From  Mag to Magnitude
+From X to X_axis_signal
+From Y to Y_axis_signal
+From Z to Z_axis_signal
+From t to Time_domain
+From f to Frequency_domain.
+
+
+
+
+
+
 
   
